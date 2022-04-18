@@ -25,7 +25,15 @@ public class Main {
         System.out.println("Сумма всех положительных чисел после первого отрицательного = " + sum);
         System.out.println(" Среднее всех положительных чисел после первого отрицательного = " + (double)sum / positiveIndexes);
 
-        Arrays.sort(numbers);
+        for (int i = numbers.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (numbers[j] > numbers[j + 1]){
+                    double tmp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = tmp;
+                }
+            }
+        }
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + "    ");
         }
